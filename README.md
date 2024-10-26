@@ -28,5 +28,5 @@ AFTERNOON:
 *Introduction to GPU and MPI Operators in Kubernetes 
   - Hands on: GPU and MPI implementation examples
 *Job Monitoring in Kubernetes
-```
 *Q/A with attendees, discussions on custom requirements
+```
