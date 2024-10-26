@@ -5,7 +5,6 @@ MORNING:
 <br>
 *Kubernetes Intro and Architecture
   - Hands On: Intro to Kubernetes
-<br>
 *Containerized software stack
 <br>
 *Kubernetes Scheduling
