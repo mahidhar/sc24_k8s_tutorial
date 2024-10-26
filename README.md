@@ -16,7 +16,7 @@ MORNING:
   - Hands On: Realistic compute workflow (30 minutes)
 <br>
 *AI and computational science research applications with Kubernetes
-
+<br>
 AFTERNOON:
 <br>
 *Hands on: AI Examples
@@ -24,7 +24,6 @@ AFTERNOON:
   - Text generation inference example
   - RAG example using Ollama
   - Helm based deployment of LLM as service
-<br>
 *Persistent Storage and I/O considerations for complex workloads
   - Hands On: Storage (20 minutes)
 <br>
