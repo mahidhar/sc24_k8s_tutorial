@@ -1,4 +1,4 @@
-# Scientific Computing with Kubernetes
+# AI and Scientific Research Computing with Kubernetes
 
 An upcoming tutorial at SC24.
 To be presented by Mahidhar Tatineni, Dmitry Mishin, Carlos Arango Guttierez, and Angel Beltre.
