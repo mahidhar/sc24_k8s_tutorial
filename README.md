@@ -4,10 +4,13 @@ MORNING:
 *Intro and Welcome 
 <br>
 *Kubernetes Intro and Architecture
+<br> 
   - Hands On: Intro to Kubernetes
+<br>
 *Containerized software stack
 <br>
 *Kubernetes Scheduling
+<br>
   - Hands On: Understanding Scheduling
 <br>
 *Interactive computing using Kubernetes
