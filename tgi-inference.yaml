@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: tgi-username
+spec:
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: nvidia.com/gpu.product
+            operator: In
+            values:
+            - NVIDIA-A10
+  volumes:
+  - name: scratch
+    emptyDir: {}
+  - name: shm
+    emptyDir:
+      medium: Memory
+      sizeLimit: 4Gi
+  containers:
+  - name: mypod
+    image: ghcr.io/huggingface/text-generation-inference:2.1.1
+    resources:
+      limits:
+        memory: 16Gi
+        cpu: 4
+        nvidia.com/gpu: 1
+      requests:
+        memory: 16Gi
+        cpu: 4
+        nvidia.com/gpu: 1
+    command: ["/bin/bash", "-c"]
+    args:
+    - >-
+        cd /scratch;
+        export HOME=/scratch;
+        timeout 1h text-generation-launcher --model-id HuggingFaceH4/zephyr-7b-beta;
+    volumeMounts:
+            - name: scratch
+              mountPath: /scratch
+            - name: shm
+              mountPath: /dev/shm
