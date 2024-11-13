@@ -287,3 +287,6 @@ You can delete the pod once you have seen the output:
 kubectl delete -f scienceapp.yaml
 ```
 
+## Comment on storage
+
+In the examples so far we have used the ephemeral storage on the nodes for storing input data, code, and output from simulations. This gets purged when the pod is deleted. In the afternoon session we will look into persistent storage options using CephFS, S3 etc.
