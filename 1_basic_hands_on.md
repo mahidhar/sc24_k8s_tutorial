@@ -227,7 +227,7 @@ It will automatically remove itself after half an hour (1800 seconds).
 
 Let's now create a bad job, one that will always fail:
 
-###### babjob1.yaml:
+###### badjob1.yaml:
 
 ```yaml
 apiVersion: batch/v1
