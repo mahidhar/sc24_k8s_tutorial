@@ -264,7 +264,7 @@ Next we can run the build script that will download the source code and build it
 
 ```
 cd /scratch/hmmsearch-benchmark
-bach ./scripts/build.sh
+bash ./scripts/build.sh
 ```
 
 ### Run the application
