@@ -21,7 +21,7 @@ spec:
       sizeLimit: 8Gi
   containers:
   - name: mypod
-    image: ollama/ollama
+    image: ollama/ollama:0.2.8
     resources:
       limits:
         memory: 24Gi
@@ -36,6 +36,7 @@ spec:
     - >-
         apt update;
         apt install -y pip wget vim;
+        pip3 install -U huggingface_hub==0.25.2;
         pip3 install -U langchain-cli;
         pip3 install -U langchain-community;
         pip3 install -U chromadb;
