@@ -225,12 +225,12 @@ spec:
               mountPath: /scratch
         resources:
           limits:
-            memory: 40Gi
-            cpu: "32"
+            memory: 32Gi
+            cpu: "16"
             ephemeral-storage: 10Gi
           requests:
-            memory: 40Gi
-            cpu: "32"
+            memory: 32Gi
+            cpu: "16"
             ephemeral-storage: 10Gi
       restartPolicy: Never
 ```
