@@ -63,6 +63,7 @@ kubectl get node -l 'nvidia.com/gpu.product!=NVIDIA-GeForce-GTX-1070,nvidia.com/
 
 You have already used requirements in the pods. Here is the very first pod we made you launch:
 
+###### pod1.yaml:
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -86,7 +87,7 @@ But we set them to be really low, so it was virtually guaranteed that the Pod wo
 
 Let's make it a job and raise the requirements drastically:
 
-
+###### jb1.yaml:
 ```yaml
 apiVersion: batch/v1
 kind: Job
@@ -126,6 +127,7 @@ kubectl get pods -o wide
 Since we were so greedy, this pod will never start.
 
 Let's relax the requirement, but keep the limits high:
+###### jb2.yaml:
 ```yaml
 apiVersion: batch/v1
 kind: Job
@@ -171,7 +173,7 @@ After you are done exploring, destroy the job(s).
 Let's now ask for a different kind of resources; let's ask for a GPU. We also change the container, so that we get the proper NVIDIA tools in place.
 
 **Note:** While you can ask for a fraction of a CPU, you cannot ask for a fraction of a GPU in our current setup. You should also keep the same number for requirements and limits.
-
+###### gp1.yaml:
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -212,7 +214,7 @@ After you are done exploring, destroy the pod(s).
 
 Now, let's add a more complex requirement.
 Let's restrict what GPU model are we willing to use.
-
+###### gp2.yaml:
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -255,7 +257,7 @@ After you are done exploring, destroy the pod(s).
 ## Preferences in pods
 
 Sometimes you would prefer something, but can live with less. In this example, let's ask for the fastest GPU in out pool, but not as a hard requirement:
-
+###### gp3.yaml:
 ```yaml
 apiVersion: v1
 kind: Pod
