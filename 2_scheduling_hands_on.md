@@ -104,10 +104,10 @@ spec:
         image: rockylinux:8
         resources:
           limits:
-            memory: 800Gi
+            memory: 1000Gi
             cpu: 110
           requests:
-            memory: 800Gi
+            memory: 1000Gi
             cpu: 110
         command: ["sh", "-c", "df -H /dev/shm; sleep 10"]
         volumeMounts:
