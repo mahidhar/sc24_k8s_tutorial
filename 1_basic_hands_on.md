@@ -30,7 +30,7 @@ Let’s create a simple generic pod, and login into it.
 You can copy-and-paste the lines below, but please do replace “username” with your own id.\
 All the participants in this hands-on session share the same namespace, so you will get name collisions if you don’t.
 
-###### simple.yaml:
+###### pod1.yaml:
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -143,7 +143,7 @@ Does it have the same IP?
 Log back into the pod:
 
 ```bash
-kubectl exec -it pod-<username> -- /bin/bash
+kubectl exec -it pod-<username> -- /bin/sh
 ```
 
 What is the status of the files your created?
