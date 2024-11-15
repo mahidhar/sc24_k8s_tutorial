@@ -1,4 +1,5 @@
-# PEARC24 Kubernetes Tutorial
+# AI and Scientific Research Computing using Kubernetes
+# SC24 Tutorial
 
 AI Examples\
 Hands on session
