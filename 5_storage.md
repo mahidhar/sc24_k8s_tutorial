@@ -183,6 +183,11 @@ Change the username in the pod-awscli.yaml file, and launch the pod by running:
 kubectl apply -f pod-awscli.yaml
 ```
 
+Check the logs to verify all the package installs are done (we install boto3 and torch packages for the test and echo a statement when they are done):
+```
+kubectl logs pod-username
+```
+
 Interactively access the running pod
 ```
 kubectl exec -it pod-username -- /bin/bash
