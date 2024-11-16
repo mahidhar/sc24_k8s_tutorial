@@ -211,6 +211,14 @@ wget https://raw.githubusercontent.com/mahidhar/sc24_k8s_tutorial/refs/heads/mai
 python3 run-training.py
 ```
 
+### S3 Connector From Amazon 
+Amazon Labs has an S3 connector for PyTorch which allows from directly streaming data from S3 buckets. Using the S3 Connector for PyTorch automatically optimizes performance when downloading training data from and writing checkpoints to Amazon S3, eliminating the need to write your own code to list S3 buckets and manage concurrent requests. Details on the github site:
+
+https://github.com/awslabs/s3-connector-for-pytorch
+
+with examples at:
+
+https://github.com/awslabs/s3-connector-for-pytorch/blob/main/examples/Getting%20started%20with%20the%20Amazon%20S3%20Connector%20for%20PyTorch.ipynb
 
 ## Explicitly moving files in
 
