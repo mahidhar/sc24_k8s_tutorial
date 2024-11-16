@@ -207,7 +207,7 @@ mkdir data
 cd data
 tar -xf ../cifar-10-python.tar.gz
 cd ../
-wget wget https://raw.githubusercontent.com/mahidhar/sc24_k8s_tutorial/refs/heads/main/run-training.py
+wget https://raw.githubusercontent.com/mahidhar/sc24_k8s_tutorial/refs/heads/main/run-training.py
 python3 run-training.py
 ```
 
