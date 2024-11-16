@@ -236,7 +236,7 @@ For *small files*, you can also use the `kubectl cp` command.
 It is similar to `scp`, but routes all traffic through a central kubernetes server, making it very slow.
 Good enough for testing and debugging, but not much else. 
 
-Again, we do not have an explict hands-on tutorial, and we discourage the uploading of any sensitive cretentials to this shared kubernetes setup.
+Again, we do not have an explict hands-on tutorial, and we discourage the uploading of any sensitive credentials to this shared kubernetes setup.
 
 
 ## End
