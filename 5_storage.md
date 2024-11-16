@@ -5,7 +5,7 @@ Hands on session
 
 ## Using ephemeral storage
 
-In the past exercizes you have seen that you can write in pretty much any part of the filesystem inside a pod.
+In the past exercises you have seen that you can write in pretty much any part of the filesystem inside a pod.
 But the amount of space you have at your disposal is limited. And if you use a significant portion of it, your pod might be terminated if kubernetes needs to reclaim some node space.
 
 If you need access to a larger (and often faster) local area, you should use the so-called ephemeral storage using emptyDir.
