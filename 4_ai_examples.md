@@ -87,7 +87,7 @@ rag.invoke("What affects pigeon plumage ?")
 
 ## Helm based deployment of LLM as service (H2O) 
 
-This is how it's supposed to work: <https://nrp-llama3.nrp-nautilus.io>
+This is how it's supposed to work: <https://nrp-llm-gradio.nrp-nautilus.io>
 
 Use `guest`:`guest` or register a new user
 
