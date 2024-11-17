@@ -9,6 +9,8 @@ h2ogpt:
 
   # -- Example configs to use when not using Model Lock and External LLM
   overrideConfig:
+    enforce_h2ogpt_api_key: False
+    enforce_h2ogpt_ui_key: False
     base_model: h2oai/h2o-danube2-1.8b-chat
     use_safetensors: True
     prompt_type: llama2
