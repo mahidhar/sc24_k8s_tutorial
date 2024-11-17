@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-username
+spec:
+  containers:
+  - name: mypod
+    image: amazon/aws-cli
+    resources:
+      limits:
+        memory: 10Gi
+        cpu: 4 
+        ephemeral-storage: 100Gi
+      requests:
+        memory: 10Gi
+        cpu: 4
+        ephemeral-storage: 100Gi 
+    command: ["/bin/bash", "-c"]
+    args:
+    - >- 
+        yum -y install python3;
+        yum -y install wget;
+        yum -y install gzip;
+        yum -y install tar;
+        pip3 install boto3;
+        pip3 install torch;
+        pip3 install torchvision;
+        echo "Done with installs";
+        sleep 3600s;
+    volumeMounts:
+    - name: scratch
+      mountPath: /scratch
+  volumes:
+  - name: scratch
+    emptyDir: {}
