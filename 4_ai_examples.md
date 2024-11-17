@@ -87,10 +87,6 @@ rag.invoke("What affects pigeon plumage ?")
 
 ## Helm based deployment of LLM as service (H2O) 
 
-This is how it's supposed to work: <https://nrp-llm-gradio.nrp-nautilus.io>
-
-Use `guest`:`guest` or register a new user
-
 Install helm. Details at: <https://github.com/helm/helm#install>. Quickest option mignt be to download and use static binaries from the release page referenced in link above.
 
 We will be using the H20 project (<https://github.com/h2oai>). Clone the H2O repository:
