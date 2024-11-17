@@ -12,7 +12,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   namespace: sc24
-  name: pod1
+  generateName: sc24-gpu-
   labels:
     app: pod
 spec:
@@ -41,7 +41,7 @@ We will calculate the value of Pi using the Monte Carlo method. The code is writ
 apiVersion: kubeflow.org/v2beta1
 kind: MPIJob
 metadata:
-  name: pi
+  generateName: sc24-mpi-pi-
 spec:
   slotsPerWorker: 1
   runPolicy:
@@ -105,7 +105,7 @@ Now let's run a multi-node GPU MPI job on Kubernetes. We will use the MPI operat
 apiVersion: kubeflow.org/v2beta1
 kind: MPIJob
 metadata:
-  name: tensorflow-benchmarks
+  generateName: sc24-mpi-tensorflow-
 spec:
   slotsPerWorker: 1
   runPolicy:
