@@ -109,6 +109,39 @@ helm install h2ogpt-username helm/h2ogpt-chart -f h2o-values.yaml
 
 Check the pods (kubectl get pods, maybe grep your username since there will be a lot of pods running) to make sure they are running. Once the pod is running, check the logs and see if h2o is running.
 
+It will take some time to load the model into GPU memory.
+
+We can do port-forward to the pod by running in the terminal:
+
+```
+kubectl port-forward h2ogpt-<username>-<hash> 5000:5000 7860:7860
+```
+
+While the port-forward is running, open another shell and pull the list of models (you need curl installed):
+
+```
+curl http://localhost:5000/v1/models
+```
+
+If you don't have curl installed, open the [http://localhost:5000/v1/models](http://localhost:5000/v1/models) URL in the browser.
+
+Now we can run a query to the model:
+
+```
+curl -X POST "http://localhost:5000/v1/chat/completions" \
+-H "Content-Type: application/json" \
+-d '{
+  "model": "h2oai/h2o-danube2-1.8b-chat",
+  "messages": [
+          {"role": "user", "content": "How tall are penguins?"}
+  ]
+}'
+```
+
+This helm chart also installs a chat application.
+
+To see the chat UI through the port-forwarding, open [http://localhost:7860](http://localhost:7860) in browser.
+
 Now you can expose the llm by using an ingress (carefully edit all fields with username):
 
 ```yaml
