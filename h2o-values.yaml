@@ -1,0 +1,112 @@
+h2ogpt:
+  enabled: true
+  stack:
+    enabled: true
+  storage:
+    size: 15Gi
+    class: rook-ceph-block
+    useEphemeral: false
+
+  # -- Example configs to use when not using Model Lock and External LLM
+  overrideConfig:
+    base_model: h2oai/h2o-danube2-1.8b-chat
+    use_safetensors: True
+    prompt_type: llama2
+    save_dir: /workspace/save/
+    use_gpu_id: False
+    score_model: None
+    max_max_new_tokens: 512
+    max_new_tokens: 256
+
+  podSecurityContext:
+    fsGroup: null
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
+
+  securityContext:
+    allowPrivilegeEscalation: false
+    capabilities:
+      drop:
+      - ALL
+    runAsNonRoot: false
+    seccompProfile:
+      type: RuntimeDefault
+
+  updateStrategy:
+    type: Recreate
+
+  service:
+    type: ClusterIP
+
+  resources:
+    requests:
+      cpu: 1
+      memory: 4Gi
+    limits:
+      cpu: 4
+      memory: 4Gi
+
+  extraAffinity:
+    nodeAffinity: 
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: nvidia.com/gpu.compute.major
+            operator: Gt
+            values:
+            - "7" 
+vllm:
+  enabled: true
+
+  storage:
+    size: 15Gi
+    class: rook-ceph-block
+    useEphemeral: false
+  
+  podSecurityContext:
+    fsGroup: null
+    runAsGroup: 0
+    runAsNonRoot: false
+    runAsUser: 0
+
+  securityContext:
+    allowPrivilegeEscalation: false
+    capabilities:
+      drop:
+      - ALL
+    runAsNonRoot: false
+    seccompProfile: null
+
+  extraAffinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: nvidia.com/gpu.compute.major
+            operator: Gt
+            values:
+            - "7" 
+  
+  containerArgs:
+    - "--model"
+    - h2oai/h2o-danube2-1.8b-chat
+    - "--tokenizer"
+    - hf-internal-testing/llama-tokenizer
+    - "--tensor-parallel-size"
+    - 1
+    - "--seed"
+    - 1234
+    - "--trust-remote-code"
+
+  updateStrategy:
+    type: Recreate
+  resources:
+    requests:
+      cpu: 2
+      memory: 8Gi
+      nvidia.com/gpu: 1
+    limits:
+      cpu: 4
+      memory: 8Gi
+      nvidia.com/gpu: 1
